@@ -5,7 +5,7 @@
 
 const baseConfig = {
 	// baseUrl: 'https://admin.sgx66.shop', // 接口基础路径
-	baseUrl: 'https://api.xiangmuceshi.shop',
+	baseUrl: 'https://admin.cgs66.cyou',
 	// baseUrl:'http://127.0.0.1',
 	timeout: 10000, // 超时时间（毫秒）
 	headers: {
