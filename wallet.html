@@ -206,10 +206,10 @@
                     </a>
                 </div>
                 <div>
-                    <a href="./yeb.html" class="t_span four">
+                    <a href="javascript:void(0);" id="footerService" class="t_span four">
                         <img src="./static/img/copy_trading.png">
                         <br>
-                        <span data-i18n="nav.finance">理财</span>
+                        <span>客服</span>
                     </a>
                 </div>
                 <div>
@@ -321,8 +321,18 @@
                     $(".confirm.guanbi").on('click', function() {
                         $('.tipMask').hide();
                     });
+					// 客服按钮
+                    $("#footerService").click(function(){
+                        let config = JSON.parse(localStorage.getItem('config'));
+                        if(config && config.service){
+                        location.href = config.service;
+                        }else{
+                        msg('提示','客服暂未配置',1);
+                        }
+                    });
                 });
             </script>
         </body>
     </body>
+
 </html>
