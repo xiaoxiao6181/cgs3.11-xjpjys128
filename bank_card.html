@@ -142,37 +142,31 @@
 });
 					    
 					    AjaxUtil.get('/index/user/getUserBankList').then(res => {
-					        if(res.code == 1 && res.data && res.data.list) {
-					            localStorage.setItem('bankCard', JSON.stringify(res.data.list));
-					            
-					            if (res.data.list.length > 0) {
-					                let banklistStr = '';
-					                res.data.list.forEach(item => {
-					                    // 根据类型显示不同的信息
-										const bankText = item.type == 2 ?  '' :  (item.bank);
-					                    const displayText = item.type == 2 ? 
-					                        (maskString(item.usdt) || I18n.t('bank_card.walletAddress')) : 
-					                        (maskString(item.account) || I18n.t('bank_card.cardNumber'));
-					                    
-					                    const nameText = '';  // 姓名不显示
-					                    
-					                    banklistStr += `
-											<li class="banklist">
-											    <span>${bankText} ${displayText}</span>
-											    <span>${nameText}</span>
-											    <i data-myid="${item.id || ''}" class="awesome"></i>
-											</li>
-										`;
-					                });
-					                
-					                $('.f_withdraw').html(banklistStr);
-					            } else {
-					                $('.f_withdraw').html('<div class="no-data">' + I18n.t('bank_card.noBankCards') + '</div>');
-					            }
-					        } else {
-					            $('.f_withdraw').html('<div class="no-data">' + I18n.t('bank_card.noBankCards') + '</div>');
-					        }
-					    })
+    if(res.code == 1 && Array.isArray(res.data?.list) && res.data.list.length > 0) {
+        localStorage.setItem('bankCard', JSON.stringify(res.data.list));
+        
+        let banklistStr = '';
+        res.data.list.forEach(item => {
+            // 防止属性不存在
+            const bankText = item.type == 2 ?  '' :  (item.bank || '');
+            const displayText = item.type == 2 ? 
+                (maskString(item.usdt) || I18n.t('bank_card.walletAddress')) : 
+                (maskString(item.account) || I18n.t('bank_card.cardNumber'));
+            const nameText = ''; // 取消显示姓名
+            
+            banklistStr += `
+                <li class="banklist">
+                    <span>${bankText} ${displayText}</span>
+                    <span>${nameText}</span>
+                    <i data-myid="${item.id || ''}" class="awesome"></i>
+                </li>
+            `;
+        });
+        $('.f_withdraw').html(banklistStr);
+    } else {
+        $('.f_withdraw').html('<div class="no-data">' + I18n.t('bank_card.noBankCards') + '</div>');
+    }
+});
 					}
 					
                     $(function() {
@@ -204,6 +198,7 @@
         </div>
     </body>
 </html>
+
 
 
 
