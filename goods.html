@@ -748,14 +748,14 @@
         var goodsId = new URLSearchParams(window.location.search).get('id');
 		var order_pid =goodsId;
         let config=localStorage.getItem('config')
-		let isRealMe=false
-		AjaxUtil.get('/index/user/getAuthCertification').then(res => {
-		    console.log(res);
+	//	let isRealMe=false
+	//	AjaxUtil.get('/index/user/getAuthCertification').then(res => {
+	//	    console.log(res);
 			
-		    if (res.code == 1&&res.data.info&&res.data.info.review_status==1) {
-				isRealMe=true
-			}
-		})
+	//	    if (res.code == 1&&res.data.info&&res.data.info.review_status==1) {
+	//			isRealMe=true
+	//		}
+	//	})
         if(config){
         	config=JSON.parse(config)
 			order_min_price=config.order_min
@@ -1030,3 +1030,4 @@ if (typeof originalToggleOrderConfirmPanel === 'function') {
     </script>
 </body>
 </html>
+
