@@ -177,9 +177,9 @@
                         </a>
                     </div>
                     <div>
-                        <a href="./yeb.html" class="t_span four">
-                            <i></i>
-                            <span data-i18n="nav.finance">理财</span>
+                        <a href="javascript:void(0);" id="footerService" class="t_span four">
+                           <i></i>
+                           <span>客服</span>
                         </a>
                     </div>
                     <div>
@@ -372,9 +372,9 @@
                     localStorage.setItem('config', JSON.stringify(res.data));
                     
                     // 客服点击事件
-                    $("#service").click(function() {
+                    $("#service,#footerService").click(function() {
                         if (res.data.service) {
-                            location.href = res.data.service;
+                          location.href = res.data.service;
                         }
                     });
                 });
@@ -450,4 +450,5 @@
             window.setInterval("getdt()", 1000);
         </script>
     </body>
+
 </html>
