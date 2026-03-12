@@ -125,16 +125,10 @@
                 <script src="./static/js/ajaxUtil.js"></script>
                 <script type="text/javascript">
 					function maskString(str) {
-					  if (str.length <= 8) {
-					    return str; // 如果字符串长度小于等于8，直接返回原字符串
-					  }
-					  
-					  const firstFour = str.substring(0, 4);
-					  const lastFour = str.substring(str.length - 4);
-					  const middleStars = '*'.repeat(str.length - 8);
-					  
-					  return firstFour + middleStars + lastFour;
-					}
+                       if (!str) return '';
+                       const lastFour = str.slice(-4);
+                       return '**** ' + lastFour;
+                    }
 					
 					function loadBankCards() {
 					    // 更新按钮文本
@@ -209,3 +203,4 @@
         </div>
     </body>
 </html>
+
