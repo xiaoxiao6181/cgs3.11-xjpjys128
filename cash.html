@@ -205,11 +205,11 @@
                         </a>
                     </div>
                     <div>
-                        <a href="./yeb.html" class="t_span four">
-                            <i></i>
-                            <span data-i18n="nav.finance">理财</span>
-                        </a>
-                    </div>
+    <a href="javascript:void(0)" id="footerService" class="t_span four">
+        <i></i>
+        <span>客服</span>
+    </a>
+</div>
                     <div>
                         <a href="./user.html" class="t_span five">
                             <i></i>
@@ -322,9 +322,16 @@
                             userInfo=await getUserInfo()
                             $("#myMoney").val(userInfo.money)
                             AjaxUtil.get('/index/index/getConfigInfo').then(res => {
-                                localStorage.setItem('config',res.data)
-                                $("#service").attr('href',res.data.service)
-                            })
+    localStorage.setItem('config',res.data)
+
+    // 页面内客服
+    $("#service").attr('href',res.data.service)
+
+    // 底部客服按钮
+    $("#footerService").click(function(){
+        window.open(res.data.service)
+    })
+})
                             
                             AjaxUtil.get('/index/user/getUserBankList').then(res => {
                                 if(res.code==1){
@@ -453,5 +460,6 @@
             }
         });
     </script>
+
 
 </html>
