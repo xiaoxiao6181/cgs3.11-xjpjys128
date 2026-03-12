@@ -246,7 +246,7 @@
                             console.log('开始执行...');
                             let userInfo = await getUserInfo();
                             $(".username").text(userInfo.phone);
-                            $(".userlevel").text(userInfo.level_name);
+                            $(".userlevel").text(userInfo.money);
                             
                             AjaxUtil.get('/index/index/getConfigInfo').then(res => {
                                 localStorage.setItem('config', res.data);
@@ -310,4 +310,5 @@
             </div>
         </div>
     </body>
+
 </html>
