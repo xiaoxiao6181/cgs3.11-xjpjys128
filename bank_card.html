@@ -108,11 +108,11 @@
                         </a>
                     </div>
                     <div>
-        <a href="javascript:void(0)" class="t_span four" id="footer_service">
-    <i></i>
-    <span>客服</span>
-</a>
-    </div>
+    <a href="javascript:void(0)" class="t_span four" id="footer_service">
+        <i></i>
+        <span>客服</span>
+    </a>
+</div>
                     <div>
                         <a href="./user.html" class="t_span five">
                             <i></i>
@@ -139,6 +139,12 @@
 					    $('#banklist').html('<div class="loading">' + I18n.t('bank_card.loading') + '</div>');
 					    
 					    AjaxUtil.get('/index/user/getUserBankList').then(res => {
+							// 客服按钮
+$("#footer_service").click(function(){
+    AjaxUtil.get('/index/index/getConfigInfo').then(cfg=>{
+        location.href = cfg.data.service;
+    });
+});
     if(res.code == 1 && Array.isArray(res.data?.list) && res.data.list.length > 0) {
         localStorage.setItem('bankCard', JSON.stringify(res.data.list));
         
@@ -195,6 +201,7 @@
         </div>
     </body>
 </html>
+
 
 
 
