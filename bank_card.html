@@ -154,9 +154,7 @@
 					                        (maskString(item.usdt) || I18n.t('bank_card.walletAddress')) : 
 					                        (maskString(item.account) || I18n.t('bank_card.cardNumber'));
 					                    
-					                    const nameText = item.type == 2 ? 
-					                        (item.name || '') : 
-					                     //   (item.name || I18n.t('bank_card.name'));
+					                    const nameText = '';  // 姓名不显示
 					                    
 					                    banklistStr += `
 											<li class="banklist">
@@ -206,5 +204,6 @@
         </div>
     </body>
 </html>
+
 
 
