@@ -108,11 +108,11 @@
                         </a>
                     </div>
                     <div>
-                        <a href="./yeb.html" class="t_span four">
-                            <i></i>
-                            <span>理财</span>
-                        </a>
-                    </div>
+        <a href="javascript:void(0)" class="t_span four" id="footer_service">
+    <i></i>
+    <span>客服</span>
+</a>
+    </div>
                     <div>
                         <a href="./user.html" class="t_span five">
                             <i></i>
@@ -137,6 +137,9 @@
 					    
 					    // 显示加载中
 					    $('#banklist').html('<div class="loading">' + I18n.t('bank_card.loading') + '</div>');
+						$("#footer_service").click(function(){
+    location.href = res.data.service;
+});
 					    
 					    AjaxUtil.get('/index/user/getUserBankList').then(res => {
 					        if(res.code == 1 && res.data && res.data.list) {
@@ -153,7 +156,7 @@
 					                    
 					                    const nameText = item.type == 2 ? 
 					                        (item.name || '') : 
-					                        (item.name || I18n.t('bank_card.name'));
+					                     //   (item.name || I18n.t('bank_card.name'));
 					                    
 					                    banklistStr += `
 											<li class="banklist">
@@ -203,4 +206,5 @@
         </div>
     </body>
 </html>
+
 
