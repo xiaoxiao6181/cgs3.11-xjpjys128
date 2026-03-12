@@ -899,6 +899,7 @@
                                     </div>
                                 </div>
                             `;
+
                         }
                     }
                     $(".period-widget-view").html(listHtml);
@@ -935,18 +936,13 @@
         
         // 重写toggle_order_confirm_panel函数以支持多语言
         var originalToggleOrderConfirmPanel = window.toggle_order_confirm_panel;
-        if (typeof originalToggleOrderConfirmPanel === 'function') {
-            window.toggle_order_confirm_panel = function(type) {
-				
-				if(!isRealMe){
-					alert('请先实名认证')
-					return
-				}
-                originalToggleOrderConfirmPanel(type);
-                // 更新订单类型显示
-                setTimeout(updateOrderTypeDisplay, 100);
-            };
-        }
+if (typeof originalToggleOrderConfirmPanel === 'function') {
+    window.toggle_order_confirm_panel = function(type) {
+        // 取消实名认证限制
+        originalToggleOrderConfirmPanel(type);
+        setTimeout(updateOrderTypeDisplay, 100);
+    };
+}
         
         // 在页面加载完成后更新文本
         $(document).ready(function() {
