@@ -177,10 +177,10 @@
                             </a>
                         </div>
                         <div>
-                            <a href="./yeb.html" class="t_span four">
-                                <i></i>
-                                <span data-i18n="nav.finance">理财</span>
-                            </a>
+                          <a href="javascript:void(0)" class="t_span four" id="footer_service">
+                            <i></i>
+                            <span>客服</span>
+                           </a>
                         </div>
                         <div>
                             <a href="./user.html" class="t_span five">
@@ -254,6 +254,9 @@
                                 $("#service").click(function(){
                                     location.href = res.data.service;
                                 });
+								$("#footer_service").click(function(){
+                                    location.href = res.data.service;
+                                });
                             });
                             
                             // 监听语言变化事件
@@ -312,3 +315,4 @@
     </body>
 
 </html>
+
