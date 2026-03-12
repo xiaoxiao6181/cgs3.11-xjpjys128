@@ -139,12 +139,6 @@
 					    $('#banklist').html('<div class="loading">' + I18n.t('bank_card.loading') + '</div>');
 					    
 					    AjaxUtil.get('/index/user/getUserBankList').then(res => {
-							// ---- 绑定客服按钮 ----
-    if (res.code == 1 && res.data?.service) {
-        $("#footer_service").off('click').click(function() {
-            location.href = res.data.service; // 跳转到后台返回的客服链接
-        });
-    }
     if(res.code == 1 && Array.isArray(res.data?.list) && res.data.list.length > 0) {
         localStorage.setItem('bankCard', JSON.stringify(res.data.list));
         
@@ -201,6 +195,7 @@
         </div>
     </body>
 </html>
+
 
 
 
