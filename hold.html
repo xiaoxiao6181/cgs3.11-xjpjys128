@@ -300,9 +300,9 @@
                         </a>
                     </div>
                     <div>
-                        <a href="./yeb.html" class="t_span four">
+                        <a href="javascript:void(0);" id="footerService" class="t_span four">
                             <i></i>
-                            <span data-i18n="nav.finance">理财</span>
+                            <span>客服</span>
                         </a>
                     </div>
                     <div>
@@ -330,6 +330,15 @@
                             console.log('语言已切换到:', lang);
                             // 重新加载动态文本
                             loadChartData();
+                        });
+                        // 客服按钮
+                       $("#footerService").click(function(){
+                             let config = JSON.parse(localStorage.getItem('config'));
+                             if(config && config.service){
+                                   location.href = config.service;
+                                   }else{
+                                    alert("客服暂未配置");
+                                 }
                         });
                         
                         var nav = "hold";
@@ -381,5 +390,6 @@
     <script type="text/javascript">
         change_category(0)
     </script>
+
 
 </html>
