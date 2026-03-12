@@ -62,12 +62,14 @@
                             <!--<li><input type="button" value="会员注册" id="reg_btn"></li>-->
                         </ul>
                         <p style="padding: 0 10% 50px 10%">
-                            <a id="reg_btn" >-- <span data-i18n="login.registerLink"></span> --</a>
-                            <br>
-                            <br>
-                            <a href="javascript:;" onclick="msg('提示', '忘记密码请联系客服', 1, '#')" data-i18n="login.forgotPassword">--忘记密码--</a>
-                            <!--<a href="https://line.me/ti/p/9YACSpNQuN" target="_blank" style="float:right">在线客服</a>-->
-                        </p>
+    <a id="reg_btn">-- <span data-i18n="login.registerLink"></span> --</a>
+    <br><br>
+
+    <a href="javascript:void(0)" id="login_service">-- 在线客服 --</a>
+    <br><br>
+
+    <a href="javascript:;" onclick="msg('提示', '忘记密码请联系客服', 1, '#')" data-i18n="login.forgotPassword">--忘记密码--</a>
+</p>
                     </div>
                 </div>
             </div>
@@ -114,8 +116,13 @@
 				AjaxUtil.get('/index/index/getConfigInfo').then(res => {
 					localStorage.setItem('config',JSON.stringify(res.data))
 					$(".t_logo img").attr('src',baseConfig.baseUrl +res.data.login_img)
-					// $("#service").attr('src',res.data.service)  
-				})
+					// $("#service").attr('src',res.data.service) 
+					// 在线客服按钮
+    $("#login_service").click(function(){
+        location.href = res.data.service;
+    });
+})
+				
                 $('#reg_btn').click(function() {
                     window.location.href = './reg.html';
                 })
@@ -150,6 +157,7 @@
                     }).catch(error => {
                         console.error('Login error:', error);
                         msg(I18n.t('common.prompt'), I18n.t('login.loginFailure'), 1);
+
                     });
                 })
             });
