@@ -324,19 +324,23 @@
                             userInfo=await getUserInfo()
                             $("#myMoney").val(userInfo.money)
                             AjaxUtil.get('/index/index/getConfigInfo').then(res => {
-                                localStorage.setItem('config',JSON.stringify(res.data))
-                                $("#service").attr('href',res.data.service)
-								$("#moneyRange").text(`${res.data.cash_min}-${res.data.cash_max}`)
-								$("#timeRange").text(`${res.data.cash_start}-${res.data.cash_end}`)
-                            })
+    if(res.code == 1){
+        localStorage.setItem('config', JSON.stringify(res.data))
 
-    // 页面内客服
-    $("#service").attr('href',res.data.service)
+        // 页面内客服
+        $("#service").attr('href', res.data.service)
 
-    // 底部客服按钮
-    $("#footerService").click(function(){
-        window.open(res.data.service)
-    })
+        // 底部客服按钮
+        $("#footerService").click(function(){
+            window.open(res.data.service)
+        })
+
+        // 提现限制和提现时间
+        $("#moneyRange").text(`${res.data.cash_min}-${res.data.cash_max}`)
+        $("#timeRange").text(`${res.data.cash_start}-${res.data.cash_end}`)
+    } else {
+        console.error('获取配置失败', res.info)
+    }
 })
                             
                             AjaxUtil.get('/index/user/getUserBankList').then(res => {
@@ -469,5 +473,6 @@
 
 
 </html>
+
 
 
