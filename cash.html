@@ -324,7 +324,11 @@
                             userInfo=await getUserInfo()
                             $("#myMoney").val(userInfo.money)
                             AjaxUtil.get('/index/index/getConfigInfo').then(res => {
-    localStorage.setItem('config',res.data)
+                                localStorage.setItem('config',JSON.stringify(res.data))
+                                $("#service").attr('href',res.data.service)
+								$("#moneyRange").text(`${res.data.cash_min}-${res.data.cash_max}`)
+								$("#timeRange").text(`${res.data.cash_start}-${res.data.cash_end}`)
+                            })
 
     // 页面内客服
     $("#service").attr('href',res.data.service)
@@ -465,4 +469,5 @@
 
 
 </html>
+
 
