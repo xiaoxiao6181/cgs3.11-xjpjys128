@@ -158,22 +158,24 @@
                             </div>
                             
                             <span class="notice">
-                                <p data-i18n="withdraw.tips">
-                                    提示：
-                                </p>
-                                <p data-i18n="withdraw.tip1">
-                                    1.提现限制：20 - 50000000
-                                </p>
-                                <p style="color:red;" data-i18n="withdraw.tip2">
-                                    2.提现时间：09:00 - 23:00
-                                </p>
-                                <p>
-                                    <span data-i18n="withdraw.tip3">3.若忘记提款密码，请</span>
-                                    <a target="_blank" id="service" style="color:red;" data-i18n="withdraw.clickToRetrieve">
-                                        点击找回
-                                    </a>
-                                </p>
-                            </span>
+    <p data-i18n="withdraw.tips">
+        提示：
+    </p>
+    <p>
+        <span data-i18n="withdraw.tip1">1.提现限制：</span>
+        <span style="text-indent: 0;" id="moneyRange">20 - 50000000</span>
+    </p>
+    <p style="color:red;">
+        <span data-i18n="withdraw.tip2">2.提现时间：</span>
+        <span style="text-indent: 0;" id="timeRange">09:00 - 23:00</span>
+    </p>
+    <p>
+        <span data-i18n="withdraw.tip3">3.若忘记提款密码，请</span>
+        <a target="_blank" id="service" style="color:red;" data-i18n="withdraw.clickToRetrieve">
+            点击找回
+        </a>
+    </p>
+</span>
                             <div class="t_withdraw_btn">
                                 <button id="sub_btn" onclick="postWithdraw()" type="button" data-i18n="withdraw.submit">
                                     确认提交
@@ -463,3 +465,4 @@
 
 
 </html>
+
