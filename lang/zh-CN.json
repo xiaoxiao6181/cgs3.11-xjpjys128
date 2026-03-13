@@ -270,8 +270,8 @@
     "submit": "确认提交",
     "addPaymentMethod": "增加支付方式",
     "tips": "提示：",
-    "tip1": "1.提现限制：20 - 50000000",
-    "tip2": "2.提现时间：09:00 - 23:00",
+    "tip1": "1.提现限制：",
+    "tip2": "2.提现时间：",
     "tip3": "3.若忘记提款密码，请",
     "clickToRetrieve": "点击找回",
     "amountRequired": "请输入提现金额",
@@ -475,5 +475,6 @@
     "alertFillAllFields": "请填写真实姓名和身份证号码！",
     "alertUploadBothPhotos": "请先上传身份证人像面和国徽面照片！",
     "alertSubmitSuccess": "提交成功"
+
   }
 }
