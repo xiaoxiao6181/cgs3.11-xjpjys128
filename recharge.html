@@ -206,14 +206,14 @@
                     $(".usdt").hide();
                 }
                 
-                $("#nickname").val(data.nickname || '');
-                $("#bank_card").val(data.bank_card || '');
-                $("#usdt").val(data.usdt || '');
+              //  $("#nickname").val(data.nickname || '');
+              //  $("#bank_card").val(data.bank_card || '');
+              //  $("#usdt").val(data.usdt || '');
                 rate = parseFloat(data.rate) || 0;
-                $("#scale").val('1:' + rate);
+              //  $("#scale").val('1:' + rate);
                 
                 const amount = parseFloat($("#money").val()) || 0;
-                $('.result').text((rate * amount).toFixed(2));
+              //  $('.result').text((rate * amount).toFixed(2));
             });
             
             // 金额输入变化
