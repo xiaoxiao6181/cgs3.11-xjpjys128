@@ -264,9 +264,9 @@
                 // [0-9a-zA-Z] : 只允许数字和字母
                 // {6,20}      : 长度在6到20位之间
                 // $           : 字符串结束
-                var usernameRegex = /^(?=.*[0-9])(?=.*[a-zA-Z])[0-9a-zA-Z]{6,20}$/;
+                var usernameRegex = /^[0-9a-zA-Z]{6,20}$/;
                 if (!usernameRegex.test(phone)) {
-                    msg(I18n.t('common.prompt'), I18n.t('reg.validation.usernameInvalid'), 1); // 新增 usernameInvalid 提示
+                    msg(I18n.t('common.prompt'), I18n.t('reg.validation.usernameInvalid'), 1);
                     $('#phone').focus();
                     return false;
                 }
